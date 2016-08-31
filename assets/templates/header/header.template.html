@@ -1,1 +1,33 @@
-<p>This is <span>app.header.html</span> </p> 
+<form [formGroup]="userForm" >
+	<label>Firstname</label>
+	<input formControlName="firstname" />
+	<small [hidden]="!userForm.controls.firstname.valid && !userForm.controls.firstname.touched">
+		Street is required
+	</small>
+	<error-message [control]="userForm.controls.firstname"></error-message>.
+	<br>
+
+	
+	<label>Lastname</label>
+	<input formControlName="lastname" />
+	<small [hidden]="!userForm.controls.lastname.valid && !userForm.controls.lastname.touched">
+		Street is required
+	</small><br>
+	
+	<label>Languages Form</label>
+	<div formArrayName="languages">
+		<div *ngFor="let lang of userForm.controls.languages.controls; let i=index" >
+			<languages [group]="userForm.controls.languages.controls[i]"></languages>
+			<!-- <div [formGroupName]="i" >
+				<input formControlName="language" />
+				<small [hidden]="userForm.controls.languages.controls[i].controls.language.valid">
+					Street is required
+				</small>
+			</div> -->
+		</div>
+	</div>
+
+	<button (click)="addLanguage()" >Add Another</button>
+	<br>
+	<button (click)="fireValidation( userForm.controls )" >Validate Information</button>
+</form>

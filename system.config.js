@@ -34,6 +34,7 @@
         '@angular/platform-browser-dynamic': { main: 'index.js', defaultExtension: 'js' },
         '@angular/router': { main: 'index.js', defaultExtension: 'js' },
         '@angular/router-deprecated': {main: 'index.js', defaultExtension: 'js'},
+        '@angular/forms': {main: 'index.js', defaultExtension: 'js'},
         'immutable': {defaultExtension:'js'}
     };
 
